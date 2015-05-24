@@ -1,12 +1,80 @@
-*.class
+package main;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-# Package Files #
-*.jar
-*.war
-*.ear
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+public class MyFrame1 extends JFrame {
+
+	private JPanel contentPane;
+	private JButton btnOk;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MyFrame1 frame = new MyFrame1();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public MyFrame1() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 795, 508);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JLabel lblWenzhoukeanUniversityAuto = new JLabel("Wenzhou-Kean University Auto Course Schedule System");
+		lblWenzhoukeanUniversityAuto.setFont(new Font("Tahoma", Font.PLAIN, 29));
+		lblWenzhoukeanUniversityAuto.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblWenzhoukeanUniversityAuto, BorderLayout.NORTH);
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.CENTER);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		JLabel lblLicense = new JLabel("License");
+		lblLicense.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		panel.add(lblLicense, BorderLayout.NORTH);
+		
+		JTextArea txtrXxxContentLicense = new JTextArea();
+		txtrXxxContentLicense.setText("XXX CONTENT LICENSE AGREEMENT\r\n\r\nThis Content License Agreement (the \"Agreement\") sets forth terms under which Owner will license to XXX certain content described on the attached Exhibit B (the \"Content\") for XXX' use on its consumer web sites and related publications.\r\n\r\nWIKIPEDIA (\"Owner\") XXX, INC. (\"XXX\") Address: _____________________ 555 12th Street, Suite 500 _____________________________ Oakland, CA 94607\r\n\r\nPrint Name: Print Name:\r\n\r\nSignature: Signature:\r\n");
+		panel.add(txtrXxxContentLicense, BorderLayout.CENTER);
+		
+		btnOk = new JButton("OK");
+		btnOk.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				 MyFrame1.this.setVisible(false);      
+				 MyFrame2 frame2 = new MyFrame2();       
+				 frame2.setVisible(true);
+			}
+		});
+		btnOk.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		panel.add(btnOk, BorderLayout.SOUTH);
+	}
+
+}
+
